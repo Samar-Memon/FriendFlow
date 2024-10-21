@@ -51,7 +51,10 @@ const PostsDetail = () => {
   useEffect(() => {
     getUserDetails()
   }, [postData])
-  
+  useEffect(() => {
+    document?.title = `Friend Flow || Post Detail`
+  }, []);
+
 
   const toggleComments = () => {
     setShowComments(!showComments);

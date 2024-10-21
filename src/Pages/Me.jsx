@@ -55,7 +55,9 @@ const Me = () => {
   useEffect(() => {
     getProfileDetails()
   }, [authObj])
-  document?.title = `Friend Flow || ${userData?.userName}`
+  useEffect(() => {
+    document?.title = `Friend Flow || ${userData?.userName}`
+  }, []);
   return (
     <div className='flex pt-[8vh]'>
       <Sidebar/>

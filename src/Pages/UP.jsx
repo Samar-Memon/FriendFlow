@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
 import { AuthContext } from '../Context/AuthProvider';
 import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
@@ -7,7 +7,9 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { toast } from 'react-toastify';
 
 const UP = () => {
-  document?.title = 'Friend Flow || Edit Profile'
+  useEffect(() => {
+    document?.title = `Friend Flow || Edit Profile`
+  }, []);
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [profileImage, setProfileImage] = useState(null);

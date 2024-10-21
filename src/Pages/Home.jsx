@@ -5,7 +5,9 @@ import Rightbar from '../Components/Rightbar'
 import PVUploads from '../Components/PVUploads'
 
 const Home = () => {
-  document?.title = 'Friend Flow || Home'
+  useEffect(() => {
+    document.title = 'Friend Flow || Home';
+  }, []);
   return (
     <div className='flex pt-[8vh]'>
       <Sidebar/>
