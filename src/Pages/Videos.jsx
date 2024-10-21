@@ -8,9 +8,6 @@ import {collection, getDocs, onSnapshot, query, where} from 'firebase/firestore'
 import Skeleton4Post from '../Components/Skeleton4Post'
 
 const Videos = () => {
-  useEffect(() => {
-    document?.title = `Friend Flow || Videos`
-  }, []);
 
   const {authObj,isUser} = useContext(AuthContext);
   const [data, setData] = useState([])

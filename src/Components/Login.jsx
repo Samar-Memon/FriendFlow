@@ -7,9 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Login = ({setLogin, login}) => {
-  useEffect(() => {
-    document?.title = `Friend Flow || Post Login`
-  }, []);
   const [isLoad, setIsLoad] = useState(false)
   const navigate = useNavigate()
   const {

@@ -45,10 +45,6 @@ const Others = () => {
       return;
     }
   
-    useEffect(() => {
-      const q = query(collection(db, 'posts'), where('uid', '==', userData.uid));
-    }, []);
-  
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const postsArray = snapshot.docs.map((doc) => ({
         id: doc.id,

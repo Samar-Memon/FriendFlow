@@ -7,9 +7,6 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { toast } from 'react-toastify';
 
 const UP = () => {
-  useEffect(() => {
-    document?.title = `Friend Flow || Edit Profile`
-  }, []);
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [profileImage, setProfileImage] = useState(null);
