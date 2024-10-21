@@ -22,9 +22,9 @@ function App() {
 
   return (
     <>
-    <ScrollTop/>
     <ToastContainer />
     <BrowserRouter>
+    <ScrollTop/>
     <Routes>
       <Route path='/' element={<Navbar><Outlet/></Navbar>}>
       <Route index element={<Home/>}/>
