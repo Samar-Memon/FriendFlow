@@ -57,7 +57,6 @@ const Others = () => {
 
     return unsubscribe;
   };
-  document?.title = `Friend Flow || ${userData?.userName}`
 
   useEffect(() => {
     const unsubscribe = getPostThisUser();
