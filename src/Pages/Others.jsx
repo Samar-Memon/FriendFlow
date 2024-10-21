@@ -44,7 +44,9 @@ const Others = () => {
       console.error("User data is not available or UID is null");
       return;
     }
-  
+
+
+    const q = query(collection(db, 'posts'), where('uid', '==', id))
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const postsArray = snapshot.docs.map((doc) => ({
         id: doc.id,
