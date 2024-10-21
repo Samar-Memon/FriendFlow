@@ -14,6 +14,7 @@ import UP from './Pages/UP'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import PostDetail from './Pages/PostsDetail'
+import ScrollTop from './Components/ScrollTop'
 
 
 
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <>
+    <ScrollTop/>
     <ToastContainer />
     <BrowserRouter>
     <Routes>
