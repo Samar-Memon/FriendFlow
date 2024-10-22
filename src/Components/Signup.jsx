@@ -17,7 +17,7 @@ const Signup = ({setLogin, login}) => {
     formState: { errors },
   } = useForm()
   const onSubmit = ({userName, email, password}) => {
-    setLogin(true)
+    setIsLoad(true)
     createUserWithEmailAndPassword(auth, email, password)
   .then(async(userCredential) => {
     // Signed up
@@ -36,12 +36,12 @@ const Signup = ({setLogin, login}) => {
         bgImage: 'https://placehold.co/600x400/EEE/31343C',
         uid: user?.uid
       })
-      setLogin(!true)
+      setIsLoad(!true)
       reset()
       setLogin(true)
     }catch(err){
       console.log(err);
-      setLogin(!true)
+      setIsLoad(!true)
       toast.error(err?.message, {
         autoClose: 500
       })
@@ -53,7 +53,7 @@ const Signup = ({setLogin, login}) => {
     toast.error(errorMessage, {
       autoClose: 500
     })
-    setLogin(!true)
+    setIsLoad(!true)
     // ..
   });
   }

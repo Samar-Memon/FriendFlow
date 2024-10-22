@@ -10,6 +10,7 @@ import { db } from '../Firebase/firebase';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import Comment from '../Components/Comment';
+import { toast } from 'react-toastify';
 dayjs.extend(relativeTime);
 
 
@@ -137,13 +138,19 @@ const PostsDetail = () => {
             className="w-full border rounded-md p-2 focus:outline-none focus:border-blue-500 transition duration-150 ease-in-out"
           />
           <button onClick={async() => {
-            await updateDoc(doc(db, 'posts', id), {
-              comments: arrayUnion({
-                text: cmntText?.trim(),
-                uid: authObj?.uid
+            if(authObj){
+              await updateDoc(doc(db, 'posts', id), {
+                comments: arrayUnion({
+                  text: cmntText?.trim(),
+                  uid: authObj?.uid
+                })
               })
-            })
-            setCmntText('')
+              setCmntText('')
+            }else{
+              toast.error('Login your Account', {
+                autoClose: 500
+              })
+            }
           }} className='bg-blue-500 rounded-md text-white px-2 py-1'>Send</button>
         </div>
       </div>

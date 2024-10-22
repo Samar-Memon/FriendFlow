@@ -44,7 +44,7 @@ const Notes = () => {
   return (
     <div className='flex pt-[8vh]'>
       <Sidebar/>
-      <div className='p-5 xl:w-[60%] w-full'>
+      <div className='p-5 xl:w-[60%] w-full overflow-y-auto h-[92vh]'>
       {isLoading && <Skeleton4Post/>}
         {isError && <h1 className='text-3xl font-bold py-4 text-center text-red-500'>Something went wrong!...</h1>}
        {
@@ -54,7 +54,7 @@ const Notes = () => {
         return(
           <Post key={index} note={doc?.note} uploadAt={doc?.uploadAt?.seconds} likes={doc?.likes?.length} uid={doc?.uid} title={doc?.title} docID={id} isLikeBtn={doc?.likes?.includes(authObj?.uid)} isNavigate={true} AllComments={doc?.comments}/>
         )
-       }) : authObj ? <h1 className='text-3xl font-bold py-4 text-center text-blue-500'>No Posts Yet</h1> : <h1 className='text-3xl font-bold py-4 text-center text-blue-500'>Bro Phly Login kro jabhi post dekhna</h1>
+       }) : authObj ? <h1 className='text-3xl font-bold py-4 text-center text-blue-500'>No Posts Yet</h1> : <h1 className='text-3xl font-bold py-4 text-center text-blue-500'>Please Login your Account</h1>
        }
       </div>
       <Rightbar/>

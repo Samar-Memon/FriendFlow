@@ -17,7 +17,7 @@ const Login = ({setLogin, login}) => {
     formState: { errors },
   } = useForm()
   const onSubmit = ({ email, password}) => {
-    setLogin(true)
+    setIsLoad(true)
     signInWithEmailAndPassword(auth, email, password)
   .then(async(userCredential) => {
     // Signed in
@@ -38,7 +38,7 @@ const Login = ({setLogin, login}) => {
           isActive: true,
           lastSeen: serverTimestamp(),
       });
-    setLogin(!true)
+      setIsLoad(!true)
       console.log('Document updated successfully');
       reset()
       navigate('/up')
@@ -50,7 +50,7 @@ const Login = ({setLogin, login}) => {
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    setLogin(!true)
+    setIsLoad(!true)
     toast.error(errorMessage, {
       autoClose: 500
     })

@@ -21,19 +21,22 @@ const Post = ({uid,uploadAt, image, likes, AllComments, video,note, title, docID
 
 
   const {authObj} = useContext(AuthContext);
+  const [data, setData] = useState([])
 
   const getPostsDetails = async() => {
      const q = query(collection(db, 'users'), where('uid', '==', uid))
     const snapShot = await getDocs(q) 
-    return snapShot.docs.map((doc) => ({
+    const postAnswer = snapShot.docs.map((doc) => ({
       id: doc.id,
       data: doc.data(),
     }));
+    setData(postAnswer)
   }
-  const {isLoading, isError, data} = useQuery({
-    queryKey: ['PostsDetails'],
-    queryFn: getPostsDetails
-  })
+
+  useEffect(() => {
+    getPostsDetails()
+  }, [uid])
+
   const finalData = data&&data[0]
 
   const fetchLikes = async(e) => {
@@ -132,7 +135,7 @@ const Post = ({uid,uploadAt, image, likes, AllComments, video,note, title, docID
         <div onClick={(e) => {
           isNavigate && navigate(`/others/${e?.target?.id}`)
         }} id={uid} className="cursor-pointer flex gap-1 items-center py-2">
-        <div className="relative w-8 h- rounded-full">
+        <div className="relative w-8 h-8 rounded-full">
         <img id={uid} src={data && finalData?.data?.userPhoto} className="w-full h-full rounded-full object-cover object-center" />
         {finalData?.data?.isActive && <div className="w-2 h-2 rounded-full bg-green-500 absolute top-0 right-0"></div>}
         </div>

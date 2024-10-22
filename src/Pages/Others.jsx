@@ -68,7 +68,7 @@ const Others = () => {
   return (
     <div className='flex pt-[8vh]'>
       <Sidebar/>
-      <div className='p-5 xl:w-[60%] w-full'>
+      <div className='p-5 xl:w-[60%] w-full overflow-y-auto h-[92vh]'>
         <ProfileTop  photo={userData?.userPhoto} name={userData?.userName} id={id} followers={userData?.followers?.length} followings={userData?.following?.length} userID={userID} />
                 {
                   posts?.length > 0 && posts?.map((data, index) => {

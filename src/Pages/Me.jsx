@@ -60,7 +60,7 @@ const Me = () => {
   return (
     <div className='flex pt-[8vh]'>
       <Sidebar/>
-      <div className='p-5 xl:w-[60%] w-full'>
+      <div className='p-5 xl:w-[60%] w-full overflow-y-auto h-[92vh]'>
       <ProfileTop  photo={userData?.userPhoto} name={userData?.userName} followers={userData?.followers?.length} followings={userData?.following?.length} bio={userData?.bio} userID={userID} />
         {authObj && <Upload/>}
         {isLoading && <div className='loader1 mx-auto my-20'></div>}

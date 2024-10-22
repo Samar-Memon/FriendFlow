@@ -12,7 +12,7 @@ const Sidebar = () => {
   const {isSide} = useContext(BarsContext)
   const {authObj} = useContext(AuthContext)
   return (
-    <div className={`z-10 bg-white border-r-2 border-gray-200 lg:w-[20%] md:w-[35%] md:static fixed top-[14vh] ${isSide ? 'left-0' : '-left-[1000%]'} w-[230px] min-h-[90vh] pr-2 transition-all duration-300`}>
+    <div className={`z-10 bg-white border-r-2 border-gray-200 lg:w-[20%] md:w-[35%] md:static fixed top-[14vh] ${isSide ? 'left-0' : '-left-[1000%]'} w-[230px] h-[91vh] pr-2 transition-all duration-300`}>
       <div className='font-bold text-xl text-gray-600'>
         <NavLink to={'/'} className={(({isActive}) => `${isActive ? 'bg-blue-500 text-white hover:bg-blue-400' : 'bg-gray-100 hover:bg-gray-200'} rounded-r-md flex gap-2 items-center py-6 px-3 my-2 cursor-pointer`)}><BiHome className='text-2xl'/> Home</NavLink>
         <NavLink to={'/photos'} className={(({isActive}) => `${isActive ? 'bg-blue-500 text-white hover:bg-blue-400' : 'bg-gray-100 hover:bg-gray-200'} rounded-r-md flex gap-2 items-center py-6 px-3 my-2 cursor-pointer`)}><BiImage className='text-2xl'/> Photos</NavLink>

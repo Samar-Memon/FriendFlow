@@ -45,7 +45,7 @@ const Feed = () => {
 
 
   return (
-    <div className='p-5 xl:w-[60%] w-full'>
+    <div className='p-5 xl:w-[60%] w-full h-[91vh] overflow-y-auto'>
         {authObj && <Upload/>}
         {isLoading && <Skeleton4Post/>}
         {isError && <h1 className='text-3xl font-bold py-4 text-center text-red-500'>Something went wrong!...</h1>}
@@ -56,7 +56,7 @@ const Feed = () => {
         return(
           <Post key={index} image={doc?.image} uploadAt={doc?.uploadAt?.seconds} likes={doc?.likes?.length} video={doc?.video} note={doc?.note} uid={doc?.uid} title={doc?.title} docID={id} isLikeBtn={doc?.likes?.includes(authObj?.uid)} AllComments={doc?.comments} isNavigate={true}/>
         )
-       }) : authObj ? <h1 className='text-3xl font-bold py-4 text-center text-blue-500'>No Posts Yet</h1> : <h1 className='text-3xl font-bold py-4 text-center text-blue-500'>Bro Phly Login kro jabhi post dekhna</h1>
+       }) : authObj ? <h1 className='text-3xl font-bold py-4 text-center text-blue-500'>No Posts Yet</h1> : <h1 className='text-3xl font-bold py-4 text-center text-blue-500'>Please Login your Account</h1>
        }
     </div>
   )
