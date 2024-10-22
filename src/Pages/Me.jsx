@@ -45,11 +45,13 @@ const Me = () => {
   }, [authObj?.uid,isUser])
 
   const [userData, setUserData] =  useState([]);
+  const [userID, setUserID] = useState('')
 
   const getProfileDetails = async() => {
     const q = query(collection(db, 'users'), where('uid', '==', authObj?.uid))
     const snapShot = await getDocs(q);
     setUserData(snapShot?.docs[0]?.data())
+    setUserID(snapShot?.docs[0]?.id)
   }
 
   useEffect(() => {
@@ -59,7 +61,7 @@ const Me = () => {
     <div className='flex pt-[8vh]'>
       <Sidebar/>
       <div className='p-5 xl:w-[60%] w-full'>
-      <ProfileTop  photo={userData?.userPhoto} name={userData?.userName} followers={userData?.followers?.length} followings={userData?.following?.length} bio={userData?.bio} />
+      <ProfileTop  photo={userData?.userPhoto} name={userData?.userName} followers={userData?.followers?.length} followings={userData?.following?.length} bio={userData?.bio} userID={userID} />
         {authObj && <Upload/>}
         {isLoading && <div className='loader1 mx-auto my-20'></div>}
         {isError && <h1 className='text-3xl font-bold py-4 text-center text-red-500'>Something went wrong!...</h1>}

@@ -38,6 +38,9 @@ const ProfileTop = ({photo, name, id, followers, followings, userID, bio}) => {
 
   const navigate = useNavigate()
 
+  console.log(userID);
+
+
 
 
   return (
@@ -64,7 +67,7 @@ const ProfileTop = ({photo, name, id, followers, followings, userID, bio}) => {
                 followers: arrayUnion(authObj?.uid)
               })
               await updateDoc(doc(db, 'users',mySnapShot?.docs[0]?.id), {
-                following: arrayUnion(authObj?.uid)
+                following: arrayUnion(userID)
               })
               setClick(!click)
             }
@@ -75,7 +78,7 @@ const ProfileTop = ({photo, name, id, followers, followings, userID, bio}) => {
                 followers: arrayRemove(authObj?.uid)
               })
               await updateDoc(doc(db, 'users',mySnapShot?.docs[0]?.id), {
-                following: arrayRemove(authObj?.uid)
+                following: arrayRemove(userID)
               })
               setClick(!click)
             }
